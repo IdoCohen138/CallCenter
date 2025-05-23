@@ -1,0 +1,22 @@
+# Ignore Python environment and cache (server/)
+server/__pycache__/
+server/*.py[cod]
+server/env/
+server/venv/
+server/.env
+
+# Ignore OS/system files
+.DS_Store
+Thumbs.db
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# General log files
+*.log
+logs/
+
+# Ignore build artifacts (if any global)
+dist/
+build/
