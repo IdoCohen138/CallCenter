@@ -54,3 +54,24 @@ CREATE TABLE suggested_task_tags (
     FOREIGN KEY (suggested_task_id) REFERENCES suggested_tasks(id) ON DELETE CASCADE,
     FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE CASCADE
 );
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    display_name VARCHAR(255),
+    role ENUM('admin', 'user') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (username, display_name, role)
+VALUES
+  ('yoav_admin', 'יואב', 'admin'),
+  ('dana_user', 'דנה', 'user'),
+  ('erez_user', 'ארז', 'user');
+
+
+INSERT INTO calls (description)
+VALUES
+  ('Gas pipe explosion on Dizengoff Street'),
+  ('Office building fire on HaArbaa Street'),
+  ('Tree collapsed on parked car on Rothschild Boulevard');
