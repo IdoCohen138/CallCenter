@@ -14,8 +14,13 @@ def create_app():
 
     app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
+    CORS(
+        app,
+        origins=["https://client-production-a326.up.railway.app"],
+        supports_credentials=True,
+        resources={r"/api/*": {"origins": "https://client-production-a326.up.railway.app"}}
+        )
 
-    CORS(app, origins=["https://client-production-a326.up.railway.app"])
 
     from .routes import register_routes
     register_routes(app)
