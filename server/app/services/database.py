@@ -1,9 +1,6 @@
 import os
 import mysql.connector
 import urllib.parse
-from dotenv import load_dotenv
-
-load_dotenv()
 
 def get_connection():
     db_url = os.getenv("MYSQL_URL")
