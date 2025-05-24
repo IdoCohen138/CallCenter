@@ -1,21 +1,35 @@
-import mysql.connector
 import os
+import mysql.connector
+import urllib.parse
 from dotenv import load_dotenv
 
 load_dotenv()
 
 def get_connection():
-    print("📍 MYSQLHOST =", os.getenv("MYSQLHOST"))
-    print("📍 MYSQLUSER =", os.getenv("MYSQLPORT"))
-    print("📍 MYSQLUSER =", os.getenv("MYSQLUSER"))
-    print("📍 MYSQLUSER =", os.getenv("MYSQLPASSWORD"))
-    print("📍 MYSQLUSER =", os.getenv("MYSQLDATABASE"))
+    db_url = os.getenv("MYSQL_URL")
+    if not db_url:
+        raise Exception("❌ MYSQL_URL not set in environment!")
+
+    parsed = urllib.parse.urlparse(db_url)
+
+    host = parsed.hostname
+    port = parsed.port
+    user = parsed.username
+    password = parsed.password
+    database = parsed.path.lstrip("/")
+
+    print("📍 Using DB:")
+    print("  Host:", host)
+    print("  Port:", port)
+    print("  User:", user)
+    print("  DB  :", database)
+
     return mysql.connector.connect(
-        host=os.getenv("MYSQLHOST"),
-        port=int(os.getenv("MYSQLPORT", 3306)),
-        user=os.getenv("MYSQLUSER"),
-        password=os.getenv("MYSQLPASSWORD"),
-        database=os.getenv("MYSQLDATABASE")
+        host=host,
+        port=port,
+        user=user,
+        password=password,
+        database=database
     )
 
 def get_all_tags():
