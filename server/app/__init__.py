@@ -20,7 +20,11 @@ def create_app():
 
     from .sockets.events import register_socket_events
     register_socket_events(socketio)
-
-    socketio.init_app(app, cors_allowed_origins="*")  
+    socketio.init_app(
+        app,
+        cors_allowed_origins="*",
+        logger=True,
+        engineio_logger=True
+    )
 
     return app
