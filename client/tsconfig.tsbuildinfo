@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/config.ts","./src/main.tsx","./src/socket.ts","./src/vite-env.d.ts","./src/components/admindashboard.tsx","./src/components/tagmanager.tsx","./src/components/tagselector.tsx","./src/components/taskmanager.tsx","./src/components/userdashboard.tsx","./src/pages/dashboard.tsx","./src/pages/login.tsx","./src/types/models.ts"],"version":"5.8.3"}
