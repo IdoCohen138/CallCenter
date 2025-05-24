@@ -8,6 +8,10 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
+    @app.route('/')
+    def home():
+        return "Server is alive!"
+
     from .routes import register_routes
     register_routes(app)
 
