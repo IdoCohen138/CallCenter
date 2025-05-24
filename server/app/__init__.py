@@ -7,6 +7,8 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 socketio = SocketIO(cors_allowed_origins="*")
 
 def create_app():
+    print("📍 Flask app loaded — CORS configured")
+
     app = Flask(__name__)
 
 
