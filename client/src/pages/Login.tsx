@@ -11,7 +11,9 @@ export default function Login() {
 
   useEffect(() => {
     const fullUrl = `${config.apiBaseUrl}/users`;
+    const sockerUrl = `${config.socketUrl}`;
     console.log("📍 FINAL FETCH URL:", fullUrl);
+    console.log("📍 FINAL sockerUrl:", sockerUrl);
 
     fetch(fullUrl)
       .then((res) => {
