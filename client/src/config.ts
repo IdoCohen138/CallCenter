@@ -1,6 +1,7 @@
 const config = {
-  apiBaseUrl: import.meta.env.VITE_API_BASE_URL,
-  socketUrl: import.meta.env.VITE_SOCKET_URL
+  apiBaseUrl: "https://server-production-fbd6.up.railway.app/api",
+  socketUrl: "wss://server-production-fbd6.up.railway.app"
 };
+
 
 export default config;
