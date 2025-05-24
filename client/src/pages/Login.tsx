@@ -8,14 +8,22 @@ export default function Login() {
   const [users, setUsers] = useState<User[]>([]);
   const [selectedUser, setSelectedUser] = useState("");
   const navigate = useNavigate();
-  console.log("📍 API Base URL:", config.apiBaseUrl);
 
   useEffect(() => {
-    fetch(`${config.apiBaseUrl}/users`)
-      .then(res => res.json())
+    const fullUrl = `${config.apiBaseUrl}/users`;
+    console.log("📍 FINAL FETCH URL:", fullUrl);
+
+    fetch(fullUrl)
+      .then((res) => {
+        console.log("📍 Response object:", res);
+        return res.json();
+      })
       .then(setUsers)
-      .catch(console.error);
+      .catch((err) => {
+        console.error("❌ FETCH ERROR:", err);
+      });
   }, []);
+
   console.log("📍 users:", users);
 
   const handleLogin = () => {
