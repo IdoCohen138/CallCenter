@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_connection():
-    db_url = os.getenv("MYSQL_URL")
+    db_url = os.getenv("MYSQL_PUBLIC_URL")
     if not db_url:
         raise Exception("❌ MYSQL_URL not set in environment!")
 
