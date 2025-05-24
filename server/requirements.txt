@@ -4,4 +4,3 @@ flask-socketio
 eventlet
 mysql-connector-python
 python-dotenv
-gunicorn
