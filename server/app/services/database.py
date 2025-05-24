@@ -5,6 +5,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_connection():
+    print("📍 MYSQLHOST =", os.getenv("MYSQLHOST"))
+    print("📍 MYSQLUSER =", os.getenv("MYSQLPORT"))
+    print("📍 MYSQLUSER =", os.getenv("MYSQLUSER"))
+    print("📍 MYSQLUSER =", os.getenv("MYSQLPASSWORD"))
+    print("📍 MYSQLUSER =", os.getenv("MYSQLDATABASE"))
     return mysql.connector.connect(
         host=os.getenv("MYSQLHOST"),
         port=int(os.getenv("MYSQLPORT", 3306)),
