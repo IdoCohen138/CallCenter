@@ -7,6 +7,8 @@ load_dotenv()
 
 def get_connection():
     db_url = os.getenv("MYSQL_URL")
+    print("📍 MYSQL_URL =", db_url)
+
     if not db_url:
         raise Exception("❌ MYSQL_URL not set in environment!")
 
