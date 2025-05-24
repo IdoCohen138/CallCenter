@@ -6,8 +6,7 @@ socketio = SocketIO(cors_allowed_origins="*")
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)
-
+    CORS(app, origins=["https://client-production-ccf0.up.railway.app"])
     from .routes import register_routes
     register_routes(app)
 
