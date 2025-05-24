@@ -16,6 +16,7 @@ export default function Login() {
       .then(setUsers)
       .catch(console.error);
   }, []);
+  console.log("📍 users:", users);
 
   const handleLogin = () => {
     const user = users.find(u => u.username === selectedUser);
