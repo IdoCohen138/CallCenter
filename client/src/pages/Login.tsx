@@ -16,7 +16,7 @@ export default function Login() {
         return res.json();
       })
       .then(setUsers)
-      .catch((err) => {
+      .catch(() => {
       });
   }, []);
 

@@ -5,6 +5,5 @@ users_bp = Blueprint('users', __name__)
 
 @users_bp.route('/', methods=['GET'])
 def fetch_users():
-    print("📍 get_all_users called")
     return jsonify(get_all_users())
 
