@@ -4,7 +4,6 @@ import urllib.parse
 
 def get_connection():
     db_url = os.getenv("MYSQL_URL")
-    print("📍 MYSQL_URL =", db_url)
     if not db_url:
         raise Exception("❌ MYSQL_URL not set in environment!")
 
@@ -15,13 +14,6 @@ def get_connection():
     user = parsed.username
     password = parsed.password
     database = parsed.path.lstrip("/")
-
-    print("📍 Using DB:")
-    print("  Host:", host)
-    print("  Port:", port)
-    print("  User:", user)
-    print("  DB  :", database)
-
     return mysql.connector.connect(
         host=host,
         port=port,

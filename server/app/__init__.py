@@ -9,11 +9,8 @@ socketio = SocketIO(cors_allowed_origins=[
 ])
 
 def create_app():
-    print("📍 Flask app loaded — CORS configured")
-
     app = Flask(__name__)
     app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
-
     CORS(
         app,
         origins=[
@@ -30,13 +27,10 @@ def create_app():
             }
         }
     )
-
     from .routes import register_routes
     register_routes(app)
-
     from .sockets.events import register_socket_events
     register_socket_events(socketio)
-
     socketio.init_app(
         app,
         cors_allowed_origins=[
@@ -46,5 +40,4 @@ def create_app():
         logger=True,
         engineio_logger=True
     )
-
     return app

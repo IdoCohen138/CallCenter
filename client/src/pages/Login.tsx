@@ -11,22 +11,15 @@ export default function Login() {
 
   useEffect(() => {
     const fullUrl = `${config.apiBaseUrl}/users`;
-    const sockerUrl = `${config.socketUrl}`;
-    console.log("📍 FINAL FETCH URL:", fullUrl);
-    console.log("📍 FINAL sockerUrl:", sockerUrl);
-
     fetch(fullUrl)
       .then((res) => {
-        console.log("📍 Response object:", res);
         return res.json();
       })
       .then(setUsers)
       .catch((err) => {
-        console.error("❌ FETCH ERROR:", err);
       });
   }, []);
 
-  console.log("📍 users:", users);
 
   const handleLogin = () => {
     const user = users.find(u => u.username === selectedUser);
